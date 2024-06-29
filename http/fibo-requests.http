@@ -1,0 +1,36 @@
+### 0 recursive REST calls
+GET http://localhost:8080/fibo/1
+
+### 2 recursive REST calls - use for JVM warm-up
+GET http://localhost:8080/fibo/3
+
+### 8 recursive REST calls
+GET http://localhost:8080/fibo/5
+
+### 40 recursive REST calls
+GET http://localhost:8080/fibo/8
+
+### 464 recursive REST calls
+GET http://localhost:8080/fibo/13
+
+### 5166 recursive REST calls - 200 sync threads are enough to compute up to 18-th term
+GET http://localhost:8080/fibo/18
+
+### 8360 recursive REST calls - hangs on 200 sync threads forever (because timeout is disabled)
+GET http://localhost:8080/fibo/19
+
+### 57312 recursive REST calls - works with virtual threads
+GET http://localhost:8080/fibo/23
+
+### 92734 recursive REST calls - exhausts TCP connections even with virtual threads
+GET http://localhost:8080/fibo/24
+
+### 150048 recursive REST calls
+GET http://localhost:8080/fibo/25
+
+### god only knows how many recursive non-REST calls - use only with rest-tasks-recursive to reach 100% CPU utilization for comparison (my machine - Response code: 200; Time: 17783ms)
+GET http://localhost:8080/fibo/47
+
+
+### get tomcat metrics over SSE in rest-sync instead of JConsole
+GET http://localhost:8080/tomcat/metrics

@@ -1,0 +1,43 @@
+integer.max: 0x7fffffff
+
+spring:
+  threads:
+    virtual:
+      enabled: true #This is what spawned this whole article!
+  application:
+    name: rest-sync-virtual
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: ${integer.max}
+            readTimeout: ${integer.max}
+
+server:
+  address: localhost
+  port: 8080
+  tomcat:
+    mbeanregistry:
+      enabled: true
+    accept-count: ${integer.max} # accept all requests, just let the OS queue them
+    connection-timeout: -1
+    max-connections: 8192 # about 1/8 of the theoretic TCP limit
+    max-keep-alive-requests: 0
+    keep-alive-timeout: 0
+    threads:
+      max: 200
+      min-spare: 1
+      max-queue-capacity: ${integer.max}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    metrics:
+      enabled: true
+  metrics:
+    enable:
+      tomcat: true

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: rest-async
+  reactor:
+    netty:
+      pool:
+        maxConnections:
+
+server:
+  address: localhost
+  port: 8080
+  netty:
+    initial-buffer-size:
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    metrics:
+      enabled: true

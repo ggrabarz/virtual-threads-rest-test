@@ -1,0 +1,15 @@
+### TEST REACTIVE EXAMPLES FAILS
+### my pc has 16 logical and 8 physical cores so it spawns 16 threads
+### https://willrosenbaum.com/teaching/2021s-cosc-112/notes/recursive-fibonacci/
+
+### 752 recursive REST calls - this one works all the time
+GET http://localhost:8080/fibo/14
+
+### 1218 recursive REST calls - this sometimes works, sometimes hangs
+GET http://localhost:8080/fibo/15
+
+### 1972 recursive REST calls - this basically always hangs
+GET http://localhost:8080/fibo/16
+
+### 3192 recursive REST calls
+GET http://localhost:8080/fibo/17

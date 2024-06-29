@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: rest-task-recursive
+
+server:
+  address: localhost
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    metrics:
+      enabled: true
